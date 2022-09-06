@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using System.Text.RegularExpressions;
 
-namespace Application.Features.ProcessData.Commands;
+namespace Application.Features._ProcessData.Commands;
 
 public class ProcessDataCommandValidate
     : AbstractValidator<ProcessDataCommand>
@@ -30,7 +30,7 @@ public class ProcessDataCommandValidate
             .Must(BeNumeric)
             .WithMessage("{PropertyName} cannot contains alphabetic symbols")
             .MaximumLength(20)
-            .WithMessage("{PropertyName} must not exteed 20 characters");
+            .WithMessage("{PropertyName} must not exteed {PropertyValue} characters");
 
         RuleFor(x => x.SteamId)
             .NotEmpty()
@@ -40,7 +40,7 @@ public class ProcessDataCommandValidate
             .Must(BeNumeric)
             .WithMessage("{PropertyName} cannot contains alphabetic symbols")
             .MaximumLength(20)
-            .WithMessage("{PropertyName} must not exteed 20 characters");
+            .WithMessage("{PropertyName} must not exteed {PropertyValue} characters");
 
         RuleFor(x => x.YoutubeUrl)
             .NotEmpty()
@@ -49,17 +49,6 @@ public class ProcessDataCommandValidate
             .WithMessage("{PropertyName} cannot be null")
             .Must(BeWellFormatedUri)
             .WithMessage("{PropertyName} must be a valid url");
-
-        RuleFor(x => x.PathToSaveVideo)
-            .NotEmpty()
-            .WithMessage("{PropertyName is required}")
-            .NotNull()
-            .WithMessage("{PropertyName} cannot be null")
-            .Custom((item, context) => {
-                if (!Directory.Exists(item)) {
-                    context.AddFailure("The specified path '{PropertyName}' does not exist");
-                }
-            });
     }
     private bool BeNumeric(string property)
     {

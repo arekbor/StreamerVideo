@@ -1,6 +1,6 @@
-﻿namespace Application.Features.ProcessData.Commands;
+﻿namespace Domain;
 
-public class ProcessDataCommandDto
+public class ProcessData
 {
     public string Token { get; set; }
     public string YoutubeUrl { get; set; }
