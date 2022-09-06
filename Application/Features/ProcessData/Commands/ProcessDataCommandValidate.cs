@@ -29,8 +29,8 @@ public class ProcessDataCommandValidate
             .WithMessage("{PropertyName} cannot be null")
             .Must(BeNumeric)
             .WithMessage("{PropertyName} cannot contains alphabetic symbols")
-            .MaximumLength(30)
-            .WithMessage("{PropertyName} must not exteed 30 characters");
+            .MaximumLength(20)
+            .WithMessage("{PropertyName} must not exteed 20 characters");
 
         RuleFor(x => x.SteamId)
             .NotEmpty()
@@ -63,7 +63,7 @@ public class ProcessDataCommandValidate
     }
     private bool BeNumeric(string property)
     {
-        if (!Regex.IsMatch(property, @"^\d+$")) return false;
+        if (!Regex.IsMatch(property, @"^-?\d*\.{0,1}\d+$")) return false;
         return true;
     }
     private bool BeWellFormatedUri(string property)
