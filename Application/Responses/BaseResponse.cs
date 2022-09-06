@@ -11,4 +11,8 @@ public class BaseResponse
         ValidationErrors.AddRange(
             validationResult.Errors.Select(x => x.ErrorMessage).AsEnumerable());
     }
+    public BaseResponse()
+    {
+
+    }
 }
