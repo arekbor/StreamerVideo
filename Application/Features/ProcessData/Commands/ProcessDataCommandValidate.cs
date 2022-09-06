@@ -29,8 +29,8 @@ public class ProcessDataCommandValidate
             .WithMessage("{PropertyName} cannot be null")
             .Must(BeNumeric)
             .WithMessage("{PropertyName} cannot contains alphabetic symbols")
-            .MaximumLength(50)
-            .WithMessage("{PropertyName} must not exteed 50 characters");
+            .MaximumLength(30)
+            .WithMessage("{PropertyName} must not exteed 30 characters");
 
         RuleFor(x => x.SteamId)
             .NotEmpty()

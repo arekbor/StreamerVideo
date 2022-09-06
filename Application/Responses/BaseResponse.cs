@@ -13,6 +13,6 @@ public class BaseResponse
     }
     public BaseResponse()
     {
-
+        ValidationErrors = new List<string>();
     }
 }
