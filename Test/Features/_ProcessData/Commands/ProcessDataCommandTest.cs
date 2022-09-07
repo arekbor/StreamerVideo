@@ -1,10 +1,10 @@
-﻿using Application.Features.ProcessDataFeatures.Commands;
+﻿using Application.Features._ProcessData.Commands;
 using MediatR;
 using Moq;
 using Shouldly;
 using Xunit;
 
-namespace Test.Features.ProcessData.Commands;
+namespace Test.Features._ProcessData.Commands;
 
 public class ProcessDataCommandTest
 {

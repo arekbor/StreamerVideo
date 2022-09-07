@@ -1,4 +1,6 @@
-﻿using Application.Features.ConvertVideo.Commands;
+﻿using Application.Features._ConvertVideo.Commands;
+using Application.Notifications.Common;
+using Application.Notifications.Logger;
 using MediatR;
 
 namespace Application.Events.ProcessData;
@@ -11,11 +13,19 @@ public class ProcessedDataEventHandler
     {
         _mediator = mediator;
     }
-    public Task Handle(ProcessedDataEvent notification, CancellationToken cancellationToken)
+    public async Task Handle(ProcessedDataEvent notification, CancellationToken cancellationToken)
     {
-        _mediator.Send(new ConvertVideoCommand() 
-            { Video = notification.YouTubeVideo, PathToSaveVideo = @"F:/pobrane/"});
+        var result = await _mediator.Send(new ConvertVideoCommand()
+            { Video = notification.YouTubeVideo, PathToSaveVideo = @"F:/pobrane/" });
 
-        return Task.CompletedTask;
+        #pragma warning disable CS4014
+        _mediator.Publish(new LoggerNotification()
+        {
+            Message = result.ValidationErrors.Any() ?
+                $"Error saving video: {String.Join(", ", result.ValidationErrors)}" : "Video successfully saved",
+
+            NotificationLevel = result.ValidationErrors.Any() ?
+                NotificationLevel.Error : NotificationLevel.Info
+        });
     }
 }

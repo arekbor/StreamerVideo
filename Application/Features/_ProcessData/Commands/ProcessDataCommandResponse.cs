@@ -1,7 +1,7 @@
 ﻿using Application.Responses;
 using FluentValidation.Results;
 
-namespace Application.Features.ProcessDataFeatures.Commands;
+namespace Application.Features._ProcessData.Commands;
 
 public class ProcessDataCommandResponse
     : BaseResponse

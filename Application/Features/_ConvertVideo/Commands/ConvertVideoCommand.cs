@@ -2,8 +2,8 @@
 using VideoLibrary;
 using Domain.Entities;
 
-namespace Application.Features.ConvertVideo.Commands;
+namespace Application.Features._ConvertVideo.Commands;
 
 public class ConvertVideoCommand
-    : ConvertVideo<YouTubeVideo>, IRequest
+    : ConvertVideo<YouTubeVideo>, IRequest<ConvertVideoCommandResponse>
 { }

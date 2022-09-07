@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
+using VideoLibrary;
 
-namespace Application.Features.ConvertVideo.Commands;
+namespace Application.Features._ConvertVideo.Commands;
 
 public class ConvertVideoCommandValidate
     : AbstractValidator<ConvertVideoCommand>
@@ -13,7 +14,7 @@ public class ConvertVideoCommandValidate
 
         RuleFor(x => x.PathToSaveVideo)
             .NotEmpty()
-            .WithMessage("{PropertyName is required}")
+            .WithMessage("{PropertyName} is required")
             .NotNull()
             .WithMessage("{PropertyName} cannot be null")
             .Custom((item, context) =>
@@ -23,5 +24,9 @@ public class ConvertVideoCommandValidate
                     context.AddFailure("The specified path '{PropertyName}' does not exist");
                 }
             });
+
+        RuleFor(x => x.Video.WebSite)
+            .Equal(WebSites.YouTube)
+            .WithMessage("{PropertyName} is invalid");
     }
 }

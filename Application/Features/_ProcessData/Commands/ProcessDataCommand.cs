@@ -1,7 +1,7 @@
 ﻿using Domain;
 using MediatR;
 
-namespace Application.Features.ProcessDataFeatures.Commands;
+namespace Application.Features._ProcessData.Commands;
 
 public class ProcessDataCommand
     : ProcessData, IRequest<ProcessDataCommandResponse>

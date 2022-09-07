@@ -2,7 +2,7 @@
 using MediatR;
 using VideoLibrary;
 
-namespace Application.Features.ProcessDataFeatures.Commands;
+namespace Application.Features._ProcessData.Commands;
 
 public class ProcessDataCommandHandler
     : IRequestHandler<ProcessDataCommand, ProcessDataCommandResponse>
@@ -24,10 +24,10 @@ public class ProcessDataCommandHandler
             .Default
             .GetVideoAsync(request.YoutubeUrl);
 
-        await _mediator.Publish(new ProcessedDataEvent() 
-            { YouTubeVideo = processedVideo });
+        #pragma warning disable CS4014
+        _mediator.Publish(new ProcessedDataEvent() 
+            { YouTubeVideo = processedVideo }).ConfigureAwait(false);
 
         return new ProcessDataCommandResponse();
     }
 }
-//TODO zrob komende do czytania xml, w domain umieszcz xml z pathem, zczytany path wyslij do convertvideocommand
