@@ -1,4 +1,4 @@
-﻿namespace Application.Notifications.Common;
+﻿namespace Domain.Common;
 
 public enum NotificationLevel
 {

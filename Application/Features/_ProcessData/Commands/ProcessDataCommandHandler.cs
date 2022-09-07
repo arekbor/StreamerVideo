@@ -24,9 +24,9 @@ public class ProcessDataCommandHandler
             .Default
             .GetVideoAsync(request.YoutubeUrl);
 
-        #pragma warning disable CS4014
-        _mediator.Publish(new ProcessedDataEvent() 
-            { YouTubeVideo = processedVideo }).ConfigureAwait(false);
+        _ = Task.Run(() => _mediator.Publish(new ProcessedDataEvent()
+        { YouTubeVideo = processedVideo }));
+
 
         return new ProcessDataCommandResponse();
     }
