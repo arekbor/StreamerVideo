@@ -1,4 +1,4 @@
-﻿using Application.Events.ProcessData;
+﻿using Application.Events._ProcessData;
 using MediatR;
 using VideoLibrary;
 
@@ -24,9 +24,8 @@ public class ProcessDataCommandHandler
             .Default
             .GetVideoAsync(request.YoutubeUrl);
 
-        _ = Task.Run(() => _mediator.Publish(new ProcessedDataEvent()
-        { YouTubeVideo = processedVideo }));
-
+        await _mediator.Publish(new ProcessedDataEvent()
+            { YouTubeVideo = processedVideo });
 
         return new ProcessDataCommandResponse();
     }

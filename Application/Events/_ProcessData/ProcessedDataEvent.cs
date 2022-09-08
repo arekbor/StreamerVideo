@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using VideoLibrary;
 
-namespace Application.Events.ProcessData;
+namespace Application.Events._ProcessData;
 
 public class ProcessedDataEvent
     :INotification

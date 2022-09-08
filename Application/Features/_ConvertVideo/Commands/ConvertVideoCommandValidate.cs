@@ -10,7 +10,7 @@ public class ConvertVideoCommandValidate
     {
         RuleFor(x => x.Video.Info.LengthSeconds)
             .LessThan(480)
-            .WithMessage("{PropertyName} must be less than {PropertyValue}");
+            .WithMessage("{PropertyName} must be less than 480s");
 
         RuleFor(x => x.PathToSaveVideo)
             .NotEmpty()
