@@ -7,9 +7,7 @@ public class WriteLogCommandHandler
 {
     public async Task<Unit> Handle(WriteLogCommand request, CancellationToken cancellationToken)
     {
-        await Task.Factory.StartNew(() => {
-            //TODO do logger logic
-        }, cancellationToken);
+        Console.WriteLine(request.Message);
 
         return Unit.Value;
     }
