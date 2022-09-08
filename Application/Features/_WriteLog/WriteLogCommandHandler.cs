@@ -1,5 +1,4 @@
-﻿using Domain.Common;
-using MediatR;
+﻿using MediatR;
 
 namespace Application.Features._WriteLog;
 
@@ -9,10 +8,7 @@ public class WriteLogCommandHandler
     public async Task<Unit> Handle(WriteLogCommand request, CancellationToken cancellationToken)
     {
         await Task.Factory.StartNew(() => {
-            if (request.NotificationLevel == NotificationLevel.Info) { }
-            //logger.LogInformation(request.Message);
-            if (request.NotificationLevel == NotificationLevel.Error) { }
-            //logger.LogError(request.Message);
+            //TODO do logger logic
         }, cancellationToken);
 
         return Unit.Value;

@@ -1,6 +1,5 @@
 ﻿using Application.Features._ConvertVideo.Commands;
 using Application.Features._WriteLog;
-using Domain.Common;
 using MediatR;
 
 namespace Application.Events._ProcessData;
@@ -21,11 +20,7 @@ public class ProcessedDataEventHandler
             {
                 await new WriteLogCommandHandler().Handle(new WriteLogCommand()
                 {
-                    Message = task.Result.ValidationErrors.Any() ?
-                    $"Error saving video: {String.Join(", ", task.Result.ValidationErrors)}" : "Video successfully saved",
-
-                    NotificationLevel = task.Result.ValidationErrors.Any() ?
-                                NotificationLevel.Error : NotificationLevel.Info
+                    //TODO send logger message
                 }, CancellationToken.None);
             });
         });
