@@ -46,3 +46,6 @@ C:\Users\a_r_e_000\source\repos\StreamerVideo\Api\bin\Debug\net6.0\Infrastructur
 C:\Users\a_r_e_000\source\repos\StreamerVideo\Api\bin\Debug\net6.0\Application.pdb
 C:\Users\a_r_e_000\source\repos\StreamerVideo\Api\bin\Debug\net6.0\Infrastructure.pdb
 C:\Users\a_r_e_000\source\repos\StreamerVideo\Api\bin\Debug\net6.0\Domain.pdb
+C:\Users\a_r_e_000\source\repos\StreamerVideo\Api\bin\Debug\net6.0\Castle.Core.dll
+C:\Users\a_r_e_000\source\repos\StreamerVideo\Api\bin\Debug\net6.0\Moq.dll
+C:\Users\a_r_e_000\source\repos\StreamerVideo\Api\bin\Debug\net6.0\NLog.dll

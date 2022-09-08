@@ -12,8 +12,7 @@ public class ProcessDataCommandTest
 
     public ProcessDataCommandTest()
     {
-        _handler = new ProcessDataCommandHandler
-            (new Mock<IMediator>().Object);
+        _handler = new ProcessDataCommandHandler();
     }
     [Fact]
     public async Task ProcessData_ValidationErrors_Count_ShouldBe_0() {

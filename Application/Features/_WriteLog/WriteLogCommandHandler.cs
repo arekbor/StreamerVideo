@@ -1,24 +1,20 @@
 ﻿using Domain.Common;
 using MediatR;
-using Microsoft.Extensions.Logging;
 
 namespace Application.Features._WriteLog;
 
 public class WriteLogCommandHandler
     : IRequestHandler<WriteLogCommand, Unit>
 {
-    private readonly ILogger<WriteLogCommand> _logger;
-    public WriteLogCommandHandler(ILogger<WriteLogCommand> logger)
+    public async Task<Unit> Handle(WriteLogCommand request, CancellationToken cancellationToken)
     {
-        _logger = logger;
-    }
-    public Task<Unit> Handle(WriteLogCommand request, CancellationToken cancellationToken)
-    {
-        if(request.NotificationLevel == NotificationLevel.Info)
-            _logger.LogInformation(request.Message);
-        if (request.NotificationLevel == NotificationLevel.Error)
-            _logger.LogError(request.Message);
+        await Task.Factory.StartNew(() => {
+            if (request.NotificationLevel == NotificationLevel.Info) { }
+            //logger.LogInformation(request.Message);
+            if (request.NotificationLevel == NotificationLevel.Error) { }
+            //logger.LogError(request.Message);
+        }, cancellationToken);
 
-        return Task.FromResult(Unit.Value);
+        return Unit.Value;
     }
 }

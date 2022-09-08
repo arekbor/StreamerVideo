@@ -8,23 +8,26 @@ namespace Application.Events._ProcessData;
 public class ProcessedDataEventHandler
     : INotificationHandler<ProcessedDataEvent>
 {
-    private readonly IMediator _mediator;
-    public ProcessedDataEventHandler(IMediator mediator)
-    {
-        _mediator = mediator;
-    }
     public async Task Handle(ProcessedDataEvent notification, CancellationToken cancellationToken)
     {
-        var result = await _mediator.Send(new ConvertVideoCommand()
-            { Video = notification.YouTubeVideo, PathToSaveVideo = @"F:/pobrane/" });
+        await Task.Run(() => {
+            var taskConvertVideoCommand = new ConvertVideoCommandHandler().Handle(new ConvertVideoCommand()
+            {
+                Video = notification.YouTubeVideo,
+                PathToSaveVideo = @"F:/pobrane/"
+            }, cancellationToken);
 
-        await _mediator.Send(new WriteLogCommand()
-        {
-            Message = result.ValidationErrors.Any() ?
-                $"Error saving video: {String.Join(", ", result.ValidationErrors)}" : "Video successfully saved",
+            _ = taskConvertVideoCommand.ContinueWith(async (task) =>
+            {
+                await new WriteLogCommandHandler().Handle(new WriteLogCommand()
+                {
+                    Message = task.Result.ValidationErrors.Any() ?
+                    $"Error saving video: {String.Join(", ", task.Result.ValidationErrors)}" : "Video successfully saved",
 
-            NotificationLevel = result.ValidationErrors.Any() ?
-                NotificationLevel.Error : NotificationLevel.Info
+                    NotificationLevel = task.Result.ValidationErrors.Any() ?
+                                NotificationLevel.Error : NotificationLevel.Info
+                }, CancellationToken.None);
+            });
         });
     }
 }
