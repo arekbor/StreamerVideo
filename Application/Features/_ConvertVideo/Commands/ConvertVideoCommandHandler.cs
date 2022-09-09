@@ -13,14 +13,9 @@ public class ConvertVideoCommandHandler
         if (!validateResult.IsValid)
             return new ConvertVideoCommandResponse(validateResult);
 
-        _ = File.WriteAllBytesAsync
+        await File.WriteAllBytesAsync
             (Path.Combine(request.PathToSaveVideo, request.Video.FullName), await request.Video.GetBytesAsync(),
             cancellationToken);
-
-        //await Task.Factory.StartNew(async () => {
-        //    await File.WriteAllBytesAsync
-        //        (Path.Combine(request.PathToSaveVideo, request.Video.FullName), await request.Video.GetBytesAsync());
-        //}, cancellationToken);
 
         return new ConvertVideoCommandResponse();
     }

@@ -8,7 +8,6 @@ public class WriteLogCommandHandler
     public async Task<Unit> Handle(WriteLogCommand request, CancellationToken cancellationToken)
     {
         Console.WriteLine(request.Message);
-
         return Unit.Value;
     }
 }
