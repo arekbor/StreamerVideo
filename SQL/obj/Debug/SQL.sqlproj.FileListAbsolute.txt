@@ -1,0 +1,10 @@
+C:\Users\a_r_e_000\source\repos\StreamerVideo\SQL\bin\Debug\SQL.dacpac
+C:\Users\a_r_e_000\source\repos\StreamerVideo\SQL\bin\Debug\SQL.dll
+C:\Users\a_r_e_000\source\repos\StreamerVideo\SQL\bin\Debug\SQL.pdb
+C:\Users\a_r_e_000\source\repos\StreamerVideo\SQL\obj\Debug\SQL.sqlproj.AssemblyReference.cache
+C:\Users\a_r_e_000\source\repos\StreamerVideo\SQL\obj\Debug\Model.xml
+C:\Users\a_r_e_000\source\repos\StreamerVideo\SQL\obj\Debug\refactor.xml
+C:\Users\a_r_e_000\source\repos\StreamerVideo\SQL\obj\Debug\postdeploy.sql
+C:\Users\a_r_e_000\source\repos\StreamerVideo\SQL\obj\Debug\predeploy.sql
+C:\Users\a_r_e_000\source\repos\StreamerVideo\SQL\obj\Debug\SQL.dll
+C:\Users\a_r_e_000\source\repos\StreamerVideo\SQL\obj\Debug\SQL.pdb

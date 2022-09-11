@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using VideoLibrary;
-using Domain.Entities;
+using Domain.Models;
 
 namespace Application.Features._ConvertVideo.Commands;
 
