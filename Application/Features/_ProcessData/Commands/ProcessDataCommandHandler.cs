@@ -1,5 +1,7 @@
 ﻿using Application.Events._ProcessData;
 using MediatR;
+using NLog;
+using NLog.Config;
 using VideoLibrary;
 
 namespace Application.Features._ProcessData.Commands;

@@ -255,13 +255,13 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Serilog/2.11.0": {
+      "NLog/5.0.4": {
         "type": "package",
         "compile": {
-          "lib/net5.0/Serilog.dll": {}
+          "lib/netstandard2.0/NLog.dll": {}
         },
         "runtime": {
-          "lib/net5.0/Serilog.dll": {}
+          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "System.Diagnostics.DiagnosticSource/6.0.0": {
@@ -906,30 +906,28 @@
         "packageIcon.png"
       ]
     },
-    "Serilog/2.11.0": {
-      "sha512": "ysv+hBzTul6Dp+Hvm10FlhJO3yMQcFKSAleus+LpiIzvNstpeV4Z7gGuIZ1OPNfIMulSHOjmLuGAEDKzpnV8ZQ==",
+    "NLog/5.0.4": {
+      "sha512": "hMyC7jq1m7c339DZXTRz96b+0YsIYSwAUB8sAWMtqXd2uwJjYe+y1k74fbItODPqDuE/krd6A4mxew9gLMS+PQ==",
       "type": "package",
-      "path": "serilog/2.11.0",
+      "path": "nlog/5.0.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "icon.png",
-        "lib/net45/Serilog.dll",
-        "lib/net45/Serilog.xml",
-        "lib/net46/Serilog.dll",
-        "lib/net46/Serilog.xml",
-        "lib/net5.0/Serilog.dll",
-        "lib/net5.0/Serilog.xml",
-        "lib/netstandard1.0/Serilog.dll",
-        "lib/netstandard1.0/Serilog.xml",
-        "lib/netstandard1.3/Serilog.dll",
-        "lib/netstandard1.3/Serilog.xml",
-        "lib/netstandard2.0/Serilog.dll",
-        "lib/netstandard2.0/Serilog.xml",
-        "lib/netstandard2.1/Serilog.dll",
-        "lib/netstandard2.1/Serilog.xml",
-        "serilog.2.11.0.nupkg.sha512",
-        "serilog.nuspec"
+        "N.png",
+        "lib/net35/NLog.dll",
+        "lib/net35/NLog.xml",
+        "lib/net45/NLog.dll",
+        "lib/net45/NLog.xml",
+        "lib/net46/NLog.dll",
+        "lib/net46/NLog.xml",
+        "lib/netstandard1.3/NLog.dll",
+        "lib/netstandard1.3/NLog.xml",
+        "lib/netstandard1.5/NLog.dll",
+        "lib/netstandard1.5/NLog.xml",
+        "lib/netstandard2.0/NLog.dll",
+        "lib/netstandard2.0/NLog.xml",
+        "nlog.5.0.4.nupkg.sha512",
+        "nlog.nuspec"
       ]
     },
     "System.Diagnostics.DiagnosticSource/6.0.0": {
@@ -1549,7 +1547,7 @@
       "MediatR.Extensions.Microsoft.DependencyInjection >= 10.0.1",
       "Microsoft.Extensions.Logging >= 6.0.0",
       "Microsoft.Extensions.Logging.Abstractions >= 6.0.1",
-      "Serilog >= 2.11.0",
+      "NLog >= 5.0.4",
       "VideoLibrary >= 3.2.1"
     ]
   },
@@ -1620,9 +1618,9 @@
             "target": "Package",
             "version": "[6.0.1, )"
           },
-          "Serilog": {
+          "NLog": {
             "target": "Package",
-            "version": "[2.11.0, )"
+            "version": "[5.0.4, )"
           },
           "VideoLibrary": {
             "target": "Package",
